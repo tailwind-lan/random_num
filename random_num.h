@@ -20,8 +20,13 @@ int rand_ex()
 		return 1;
 	else if (rand_num1 == 1 && rand_num2 == 0)
 		return 0;
-	else return rand_ex();
+	
+	return rand_ex();
 }
+//关于rand_ex()说明：只有当rand_num1和rand_num2两个值互不相等时，概率才相等。
+//两者都为1的概率为(1-p)*(1-p)，两者都为0的概率为p*p，所以互不相等的概率是rate=1-p*p-(1-p)(1-p)。
+//因为两个值中其中一个为0，另一个为1的概率都是rate*1/2。所以取互不相等的情况作为产生0和1的结果。
+
 //第二步：计算整数n的二进制表示所拥有的位数k，k = 1 +log2n(2为底，n为值)
 //第三步：调用k次rand_ex()产生随机数。
 int new_rand()
