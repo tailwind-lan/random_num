@@ -100,3 +100,14 @@ int random(int size)
 			return m + n;
 	}
 }
+//如何利用rand7()实现等概率的rand5()？
+int rand5()
+{
+	int x = 0;
+	do
+	{
+		x = rand7();
+	} while (x > 5);
+
+	return x;
+}
